@@ -1,71 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
  * KIK_przetwornikADC.c
  *
@@ -81,7 +13,7 @@ ISR (ADC_vect)
 {
 	if (ADMUX & (1<<MUX0))
 	{
-		//kana³ ADC5
+		//kanaÂ³ ADC5
 		if (ADC < 300)
 		{
 			PORTB	|= (1<<PB0);
@@ -90,12 +22,12 @@ ISR (ADC_vect)
 		{
 			PORTB	&= ~(1<<PB0);
 		}
-		ADMUX	&= ~(1<<MUX0);	//Ustaw kana³ ADC4
+		ADMUX	&= ~(1<<MUX0);	//Ustaw kanaÂ³ ADC4
 		//ADCSRA	|= (1<<ADSC);	//Rozpocznij pomiar
 	}
 	else
 	{
-		//kana³ ADC4
+		//kanaÂ³ ADC4
 		if (ADC < 300)
 		{
 			PORTB	|= (1<<PB2);
@@ -104,7 +36,7 @@ ISR (ADC_vect)
 		{
 			PORTB	&= ~(1<<PB2);
 		}
-		ADMUX	|= (1<<MUX0);	//Ustaw kana³ ADC5
+		ADMUX	|= (1<<MUX0);	//Ustaw kanaÂ³ ADC5
 		//ADCSRA	|= (1<<ADSC);	//Rozpocznij pomiar
 	}
 	
@@ -120,8 +52,8 @@ int main(void)
 	
 	
 	DDRB	|=	(1<<PB0)	|	(1<<PB1)	|	(1<<PB2);
-	ADCSRA	|= (1<<ADIE);	//W³¹cz przerwania ADC
-	ADCSRA	|= (1<<ADFR);	//W³¹cz FreeRunning mode
+	ADCSRA	|= (1<<ADIE);	//WÂ³Â¹cz przerwania ADC
+	ADCSRA	|= (1<<ADFR);	//WÂ³Â¹cz FreeRunning mode
 	sei();
 	
 	
