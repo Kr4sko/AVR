@@ -1,0 +1,923 @@
+
+wyswietlaczSPI.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000062e  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000012  00800060  0000062e  000006a2  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  000006b4  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000006e4  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000c8  00000000  00000000  00000720  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000e22  00000000  00000000  000007e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000008d7  00000000  00000000  0000160a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000006fa  00000000  00000000  00001ee1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  0000013c  00000000  00000000  000025dc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000053b  00000000  00000000  00002718  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000021b  00000000  00000000  00002c53  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000098  00000000  00000000  00002e6e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	e5 c1       	rjmp	.+970    	; 0x3cc <__ctors_end>
+   2:	f7 c1       	rjmp	.+1006   	; 0x3f2 <__bad_interrupt>
+   4:	f6 c1       	rjmp	.+1004   	; 0x3f2 <__bad_interrupt>
+   6:	f5 c1       	rjmp	.+1002   	; 0x3f2 <__bad_interrupt>
+   8:	f4 c1       	rjmp	.+1000   	; 0x3f2 <__bad_interrupt>
+   a:	f3 c1       	rjmp	.+998    	; 0x3f2 <__bad_interrupt>
+   c:	f2 c1       	rjmp	.+996    	; 0x3f2 <__bad_interrupt>
+   e:	f1 c1       	rjmp	.+994    	; 0x3f2 <__bad_interrupt>
+  10:	f0 c1       	rjmp	.+992    	; 0x3f2 <__bad_interrupt>
+  12:	ef c1       	rjmp	.+990    	; 0x3f2 <__bad_interrupt>
+  14:	ee c1       	rjmp	.+988    	; 0x3f2 <__bad_interrupt>
+  16:	ed c1       	rjmp	.+986    	; 0x3f2 <__bad_interrupt>
+  18:	ec c1       	rjmp	.+984    	; 0x3f2 <__bad_interrupt>
+  1a:	eb c1       	rjmp	.+982    	; 0x3f2 <__bad_interrupt>
+  1c:	ea c1       	rjmp	.+980    	; 0x3f2 <__bad_interrupt>
+  1e:	e9 c1       	rjmp	.+978    	; 0x3f2 <__bad_interrupt>
+  20:	e8 c1       	rjmp	.+976    	; 0x3f2 <__bad_interrupt>
+  22:	e7 c1       	rjmp	.+974    	; 0x3f2 <__bad_interrupt>
+  24:	e6 c1       	rjmp	.+972    	; 0x3f2 <__bad_interrupt>
+
+00000026 <Descriptors>:
+  26:	06 00 00 00 06 00 06 00 06 00 0c 00 06 00 12 00     ................
+  36:	06 00 18 00 06 00 1e 00 06 00 24 00 06 00 2a 00     ..........$...*.
+  46:	06 00 30 00 06 00 36 00 06 00 3c 00 06 00 42 00     ..0...6...<...B.
+  56:	06 00 48 00 06 00 4e 00 06 00 54 00 06 00 5a 00     ..H...N...T...Z.
+  66:	06 00 60 00 06 00 66 00 06 00 6c 00 06 00 72 00     ..`...f...l...r.
+  76:	06 00 78 00 06 00 7e 00 06 00 84 00 06 00 8a 00     ..x...~.........
+  86:	06 00 90 00 06 00 96 00 06 00 9c 00 06 00 a2 00     ................
+  96:	06 00 a8 00 06 00 ae 00 06 00 b4 00 06 00 ba 00     ................
+  a6:	06 00 c0 00 06 00 c6 00 06 00 cc 00 06 00 d2 00     ................
+  b6:	06 00 d8 00 06 00 de 00 06 00 e4 00 06 00 ea 00     ................
+  c6:	06 00 f0 00 06 00 f6 00 06 00 fc 00 06 00 02 01     ................
+  d6:	06 00 08 01 06 00 0e 01 06 00 14 01 06 00 1a 01     ................
+  e6:	06 00 20 01 06 00 26 01 06 00 2c 01 06 00 32 01     .. ...&...,...2.
+  f6:	06 00 38 01 06 00 3e 01 06 00 44 01 06 00 4a 01     ..8...>...D...J.
+ 106:	06 00 50 01 06 00 56 01 06 00 5c 01 06 00 62 01     ..P...V...\...b.
+ 116:	06 00 68 01 06 00 6e 01 06 00 74 01 00 00 00 00     ..h...n...t.....
+ 126:	06 00 7a 01 06 00 80 01 06 00 86 01 06 00 8c 01     ..z.............
+ 136:	06 00 92 01 06 00 98 01 06 00 9e 01 06 00 a4 01     ................
+ 146:	06 00 aa 01 06 00 b0 01 06 00 b6 01 06 00 bc 01     ................
+ 156:	06 00 c2 01 06 00 c8 01 06 00 ce 01 06 00 d4 01     ................
+ 166:	06 00 da 01 06 00 e0 01 06 00 e6 01 06 00 ec 01     ................
+ 176:	06 00 f2 01 06 00 f8 01 06 00 fe 01 06 00 04 02     ................
+ 186:	06 00 0a 02 06 00 10 02 06 00 16 02 06 00 1c 02     ................
+ 196:	06 00 22 02 06 00 28 02                             .."...(.
+
+0000019e <Bitmaps>:
+ 19e:	00 00 00 5f 00 00 00 00 03 00 03 00 00 14 7f 14     ..._............
+ 1ae:	7f 14 00 24 2a 6b 2a 12 00 43 30 08 06 61 00 30     ...$*k*..C0..a.0
+ 1be:	4a 5d 32 48 00 00 00 03 00 00 00 1c 22 41 41 00     J]2H........"AA.
+ 1ce:	00 41 41 22 1c 00 00 05 02 02 05 00 00 10 10 7c     .AA"...........|
+ 1de:	10 10 00 00 00 e0 00 00 00 10 10 10 10 10 00 00     ................
+ 1ee:	00 60 00 00 00 40 30 08 06 01 00 3e 51 49 45 3e     .`...@0....>QIE>
+ 1fe:	00 40 42 7f 40 40 00 62 51 49 49 46 00 22 41 49     .@B.@@.bQIIF."AI
+ 20e:	49 36 00 18 14 12 11 7f 00 27 45 45 45 39 00 3c     I6.......'EEE9.<
+ 21e:	4a 49 49 30 00 03 01 71 09 07 00 36 49 49 49 36     JII0...q...6III6
+ 22e:	00 06 49 49 29 1e 00 00 00 66 00 00 00 00 00 e6     ..II)....f......
+ 23e:	00 00 00 08 14 22 41 00 00 24 24 24 24 24 00 41     ....."A..$$$$$.A
+ 24e:	22 14 08 00 00 02 01 51 09 06 3e 41 5d 5d 51 5e     "......Q..>A]]Q^
+ 25e:	00 7e 05 05 05 7e 00 7f 45 45 45 3a 00 3e 41 41     .~...~..EEE:.>AA
+ 26e:	41 22 00 7f 41 41 41 3e 00 7f 45 45 41 41 00 7f     A"..AAA>..EEAA..
+ 27e:	05 05 01 01 00 3e 41 45 45 3d 00 7f 04 04 04 7f     .....>AEE=......
+ 28e:	00 00 41 7f 41 00 00 20 40 40 40 3f 00 7f 04 04     ..A.A.. @@@?....
+ 29e:	0a 71 00 7f 40 40 40 40 00 7f 02 04 02 7f 00 7f     .q..@@@@........
+ 2ae:	02 04 08 7f 00 3e 41 41 41 3e 00 7f 05 05 05 02     .....>AAA>......
+ 2be:	00 3e 41 41 21 5e 00 7f 05 05 05 7a 00 22 45 45     .>AA!^.....z."EE
+ 2ce:	45 39 00 01 01 7f 01 01 00 3f 40 40 40 3f 00 0f     E9.......?@@@?..
+ 2de:	30 40 30 0f 00 7f 20 10 20 7f 00 71 0a 04 0a 71     0@0... . ..q...q
+ 2ee:	00 01 02 7c 02 01 00 61 51 49 45 43 00 00 7f 41     ...|...aQIEC...A
+ 2fe:	41 00 00 01 06 08 30 40 00 00 41 41 7f 00 00 04     A.....0@..AA....
+ 30e:	02 01 02 04 00 80 80 80 80 80 00 20 54 54 54 78     ........... TTTx
+ 31e:	00 7f 48 44 44 38 00 38 44 44 44 28 00 38 44 44     ..HDD8.8DDD(.8DD
+ 32e:	48 7f 00 38 54 54 54 58 00 04 7e 05 05 00 00 98     H..8TTTX..~.....
+ 33e:	a4 a4 a4 7c 00 7f 08 04 04 78 00 00 00 7d 00 00     ...|.....x...}..
+ 34e:	00 60 80 80 80 7d 00 7f 10 28 44 00 00 00 3f 40     .`...}...(D...?@
+ 35e:	00 00 00 7c 04 18 04 78 00 7c 04 04 04 78 00 38     ...|...x.|...x.8
+ 36e:	44 44 44 38 00 fc 28 24 24 18 00 18 24 24 28 fc     DDD8..($$...$$(.
+ 37e:	00 7c 08 04 04 08 00 48 54 54 54 24 00 00 02 3f     .|.....HTTT$...?
+ 38e:	42 00 00 3c 40 40 40 7c 00 1c 20 40 20 1c 00 3c     B..<@@@|.. @ ..<
+ 39e:	40 70 40 7c 00 44 28 10 28 44 00 9c a0 a0 a0 7c     @p@|.D(.(D.....|
+ 3ae:	00 44 64 54 4c 44 00 08 36 41 41 00 00 00 00 ff     .DdTLD..6AA.....
+ 3be:	00 00 00 41 41 36 08 00 02 01 01 02 02 01           ...AA6........
+
+000003cc <__ctors_end>:
+ 3cc:	11 24       	eor	r1, r1
+ 3ce:	1f be       	out	0x3f, r1	; 63
+ 3d0:	cf e5       	ldi	r28, 0x5F	; 95
+ 3d2:	d4 e0       	ldi	r29, 0x04	; 4
+ 3d4:	de bf       	out	0x3e, r29	; 62
+ 3d6:	cd bf       	out	0x3d, r28	; 61
+
+000003d8 <__do_copy_data>:
+ 3d8:	10 e0       	ldi	r17, 0x00	; 0
+ 3da:	a0 e6       	ldi	r26, 0x60	; 96
+ 3dc:	b0 e0       	ldi	r27, 0x00	; 0
+ 3de:	ee e2       	ldi	r30, 0x2E	; 46
+ 3e0:	f6 e0       	ldi	r31, 0x06	; 6
+ 3e2:	02 c0       	rjmp	.+4      	; 0x3e8 <__do_copy_data+0x10>
+ 3e4:	05 90       	lpm	r0, Z+
+ 3e6:	0d 92       	st	X+, r0
+ 3e8:	a2 37       	cpi	r26, 0x72	; 114
+ 3ea:	b1 07       	cpc	r27, r17
+ 3ec:	d9 f7       	brne	.-10     	; 0x3e4 <__do_copy_data+0xc>
+ 3ee:	ca d0       	rcall	.+404    	; 0x584 <main>
+ 3f0:	1c c1       	rjmp	.+568    	; 0x62a <_exit>
+
+000003f2 <__bad_interrupt>:
+ 3f2:	06 ce       	rjmp	.-1012   	; 0x0 <__vectors>
+
+000003f4 <IP12B512x_check_memory>:
+#include "fonts.h"
+#include "SSD1306.h"
+
+inline void IP12B512x_SS_low(void)
+{
+	PORTD &= ~(1 << PD4);
+ 3f4:	94 98       	cbi	0x12, 4	; 18
+}
+
+int IP12B512x_check_memory()
+{
+	IP12B512x_SS_low();
+	SPDR = RDMI;
+ 3f6:	8e e0       	ldi	r24, 0x0E	; 14
+ 3f8:	8f b9       	out	0x0f, r24	; 15
+	PORTD |= (1 << PD4);
+}
+
+inline void IP12B512x_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 3fa:	77 9b       	sbis	0x0e, 7	; 14
+ 3fc:	fe cf       	rjmp	.-4      	; 0x3fa <IP12B512x_check_memory+0x6>
+int IP12B512x_check_memory()
+{
+	IP12B512x_SS_low();
+	SPDR = RDMI;
+	IP12B512x_spi_transmision_end();
+	SPDR = 0x0;
+ 3fe:	1f b8       	out	0x0f, r1	; 15
+	PORTD |= (1 << PD4);
+}
+
+inline void IP12B512x_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 400:	77 9b       	sbis	0x0e, 7	; 14
+ 402:	fe cf       	rjmp	.-4      	; 0x400 <__LOCK_REGION_LENGTH__>
+	IP12B512x_SS_low();
+	SPDR = RDMI;
+	IP12B512x_spi_transmision_end();
+	SPDR = 0x0;
+	IP12B512x_spi_transmision_end();
+	return SPDR;	
+ 404:	8f b1       	in	r24, 0x0f	; 15
+}
+ 406:	90 e0       	ldi	r25, 0x00	; 0
+ 408:	08 95       	ret
+
+0000040a <ssd1306_spiini>:
+	while(!(SPSR & (1 << SPIF)));
+}
+
+void ssd1306_spiini(void)
+{
+	DDRD |= (1 << PD7); // Ustaw D/C# (PD7) na wyjscie
+ 40a:	8f 9a       	sbi	0x11, 7	; 17
+	
+	
+	DDRB |= (1 << PB0); // Ustaw RST (PB0) na wyjscie
+ 40c:	b8 9a       	sbi	0x17, 0	; 23
+	PORTB |= (1 << PB0); // Ustaw RST na stan wysoki
+ 40e:	c0 9a       	sbi	0x18, 0	; 24
+		
+	
+	DDRB |= (1 << PB2); // SS na wyjscie
+ 410:	ba 9a       	sbi	0x17, 2	; 23
+	PORTB |= (1 << PB2); // SS stan wysoki
+ 412:	c2 9a       	sbi	0x18, 2	; 24
+	
+	
+	DDRB |= (1 << PB3) | (1 << PB5); //MOSI i SCK na wyjscie
+ 414:	87 b3       	in	r24, 0x17	; 23
+ 416:	88 62       	ori	r24, 0x28	; 40
+ 418:	87 bb       	out	0x17, r24	; 23
+			
+	
+	SPCR |= (1 << MSTR); //Wlacz tryb Master
+ 41a:	6c 9a       	sbi	0x0d, 4	; 13
+	SPCR |= (1 << CPHA) | (1 << CPOL); //Ustawienie transmisji danych
+ 41c:	8d b1       	in	r24, 0x0d	; 13
+ 41e:	8c 60       	ori	r24, 0x0C	; 12
+ 420:	8d b9       	out	0x0d, r24	; 13
+	SPSR |= (1 << SPI2X); // Przyspieszenie transmisji
+ 422:	70 9a       	sbi	0x0e, 0	; 14
+	SPCR |= (1 << SPR0); // Preskaler 2
+ 424:	68 9a       	sbi	0x0d, 0	; 13
+	SPCR |= (1 << SPE);	// Wlaczenie SPI	
+ 426:	6e 9a       	sbi	0x0d, 6	; 13
+ 428:	08 95       	ret
+
+0000042a <ssd1306_enable_charge_pump>:
+	PORTD |= (1 << PD7);
+}
+
+inline void ssd1306_DC_low(void) // D/#C - PD7 
+{
+	PORTD &= ~(1 << PD7);	
+ 42a:	97 98       	cbi	0x12, 7	; 18
+	PORTB |= (1 << PB2);
+}
+
+inline void ssd1306_SS_low(void)
+{
+	PORTB &= ~(1 << PB2);
+ 42c:	c2 98       	cbi	0x18, 2	; 24
+
+void ssd1306_enable_charge_pump(void)
+{
+	ssd1306_DC_low();
+	ssd1306_SS_low();
+	SPDR = CHARGE_PUMP;
+ 42e:	8d e8       	ldi	r24, 0x8D	; 141
+ 430:	8f b9       	out	0x0f, r24	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 432:	77 9b       	sbis	0x0e, 7	; 14
+ 434:	fe cf       	rjmp	.-4      	; 0x432 <ssd1306_enable_charge_pump+0x8>
+{
+	ssd1306_DC_low();
+	ssd1306_SS_low();
+	SPDR = CHARGE_PUMP;
+	ssd1306_spi_transmision_end();
+	SPDR = CHARGE_PUMP_ENABLE;
+ 436:	84 e1       	ldi	r24, 0x14	; 20
+ 438:	8f b9       	out	0x0f, r24	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 43a:	77 9b       	sbis	0x0e, 7	; 14
+ 43c:	fe cf       	rjmp	.-4      	; 0x43a <ssd1306_enable_charge_pump+0x10>
+	PORTD &= ~(1 << PD7);	
+}
+
+inline void ssd1306_SS_high(void)
+{
+	PORTB |= (1 << PB2);
+ 43e:	c2 9a       	sbi	0x18, 2	; 24
+ 440:	08 95       	ret
+
+00000442 <ssd1306_display_on>:
+	PORTD |= (1 << PD7);
+}
+
+inline void ssd1306_DC_low(void) // D/#C - PD7 
+{
+	PORTD &= ~(1 << PD7);	
+ 442:	97 98       	cbi	0x12, 7	; 18
+	PORTB |= (1 << PB2);
+}
+
+inline void ssd1306_SS_low(void)
+{
+	PORTB &= ~(1 << PB2);
+ 444:	c2 98       	cbi	0x18, 2	; 24
+
+void ssd1306_display_on(void)
+{
+	ssd1306_DC_low();
+	ssd1306_SS_low();
+	SPDR = DISPLAY_ON_NORMAL;
+ 446:	8f ea       	ldi	r24, 0xAF	; 175
+ 448:	8f b9       	out	0x0f, r24	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 44a:	77 9b       	sbis	0x0e, 7	; 14
+ 44c:	fe cf       	rjmp	.-4      	; 0x44a <ssd1306_display_on+0x8>
+	PORTD &= ~(1 << PD7);	
+}
+
+inline void ssd1306_SS_high(void)
+{
+	PORTB |= (1 << PB2);
+ 44e:	c2 9a       	sbi	0x18, 2	; 24
+ 450:	08 95       	ret
+
+00000452 <ssd1306_ini>:
+	ssd1306_SS_high();
+}
+
+void ssd1306_ini(void)
+{
+	ssd1306_enable_charge_pump();
+ 452:	eb df       	rcall	.-42     	; 0x42a <ssd1306_enable_charge_pump>
+	ssd1306_display_on();
+ 454:	f6 df       	rcall	.-20     	; 0x442 <ssd1306_display_on>
+ 456:	08 95       	ret
+
+00000458 <ssd1306_setpage>:
+	PORTD |= (1 << PD7);
+}
+
+inline void ssd1306_DC_low(void) // D/#C - PD7 
+{
+	PORTD &= ~(1 << PD7);	
+ 458:	97 98       	cbi	0x12, 7	; 18
+	PORTB |= (1 << PB2);
+}
+
+inline void ssd1306_SS_low(void)
+{
+	PORTB &= ~(1 << PB2);
+ 45a:	c2 98       	cbi	0x18, 2	; 24
+
+void ssd1306_setpage(char p_num_start, char p_num_end) // Wybieranie zakresu page na wyswietlaczu,  p_num_start - poczatek zakresu (0-7), p_num_end - koniec zakresu (0-7)
+{
+	ssd1306_DC_low();
+	ssd1306_SS_low();
+	SPDR = SET_PAGE_ADDRESS;
+ 45c:	92 e2       	ldi	r25, 0x22	; 34
+ 45e:	9f b9       	out	0x0f, r25	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 460:	77 9b       	sbis	0x0e, 7	; 14
+ 462:	fe cf       	rjmp	.-4      	; 0x460 <__stack+0x1>
+{
+	ssd1306_DC_low();
+	ssd1306_SS_low();
+	SPDR = SET_PAGE_ADDRESS;
+	ssd1306_spi_transmision_end();
+	SPDR = p_num_start;
+ 464:	8f b9       	out	0x0f, r24	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 466:	77 9b       	sbis	0x0e, 7	; 14
+ 468:	fe cf       	rjmp	.-4      	; 0x466 <__stack+0x7>
+	ssd1306_SS_low();
+	SPDR = SET_PAGE_ADDRESS;
+	ssd1306_spi_transmision_end();
+	SPDR = p_num_start;
+	ssd1306_spi_transmision_end();
+	SPDR = p_num_end;
+ 46a:	6f b9       	out	0x0f, r22	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 46c:	77 9b       	sbis	0x0e, 7	; 14
+ 46e:	fe cf       	rjmp	.-4      	; 0x46c <__stack+0xd>
+	PORTD &= ~(1 << PD7);	
+}
+
+inline void ssd1306_SS_high(void)
+{
+	PORTB |= (1 << PB2);
+ 470:	c2 9a       	sbi	0x18, 2	; 24
+ 472:	08 95       	ret
+
+00000474 <ssd1306_setcolumn>:
+	PORTD |= (1 << PD7);
+}
+
+inline void ssd1306_DC_low(void) // D/#C - PD7 
+{
+	PORTD &= ~(1 << PD7);	
+ 474:	97 98       	cbi	0x12, 7	; 18
+	PORTB |= (1 << PB2);
+}
+
+inline void ssd1306_SS_low(void)
+{
+	PORTB &= ~(1 << PB2);
+ 476:	c2 98       	cbi	0x18, 2	; 24
+
+void ssd1306_setcolumn(char c_num_start, char c_num_end) // Wybieranie zakresu kolumn na wyswietlaczu,  c_num_start - poczatek zakresu (0-127), c_num_end - koniec zakresu (0-127)
+{
+	ssd1306_DC_low();
+	ssd1306_SS_low();
+	SPDR = SET_COLUMN_ADDRESS;
+ 478:	91 e2       	ldi	r25, 0x21	; 33
+ 47a:	9f b9       	out	0x0f, r25	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 47c:	77 9b       	sbis	0x0e, 7	; 14
+ 47e:	fe cf       	rjmp	.-4      	; 0x47c <ssd1306_setcolumn+0x8>
+{
+	ssd1306_DC_low();
+	ssd1306_SS_low();
+	SPDR = SET_COLUMN_ADDRESS;
+	ssd1306_spi_transmision_end();
+	SPDR = c_num_start;
+ 480:	8f b9       	out	0x0f, r24	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 482:	77 9b       	sbis	0x0e, 7	; 14
+ 484:	fe cf       	rjmp	.-4      	; 0x482 <ssd1306_setcolumn+0xe>
+	ssd1306_SS_low();
+	SPDR = SET_COLUMN_ADDRESS;
+	ssd1306_spi_transmision_end();
+	SPDR = c_num_start;
+	ssd1306_spi_transmision_end();
+	SPDR = c_num_end;
+ 486:	6f b9       	out	0x0f, r22	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 488:	77 9b       	sbis	0x0e, 7	; 14
+ 48a:	fe cf       	rjmp	.-4      	; 0x488 <ssd1306_setcolumn+0x14>
+	PORTD &= ~(1 << PD7);	
+}
+
+inline void ssd1306_SS_high(void)
+{
+	PORTB |= (1 << PB2);
+ 48c:	c2 9a       	sbi	0x18, 2	; 24
+ 48e:	08 95       	ret
+
+00000490 <ssd1306_set_memory_addressing_mode>:
+	PORTD |= (1 << PD7);
+}
+
+inline void ssd1306_DC_low(void) // D/#C - PD7 
+{
+	PORTD &= ~(1 << PD7);	
+ 490:	97 98       	cbi	0x12, 7	; 18
+	PORTB |= (1 << PB2);
+}
+
+inline void ssd1306_SS_low(void)
+{
+	PORTB &= ~(1 << PB2);
+ 492:	c2 98       	cbi	0x18, 2	; 24
+*/
+void ssd1306_set_memory_addressing_mode(char type)
+{
+	ssd1306_DC_low();
+	ssd1306_SS_low();
+	SPDR = SET_MEMORY_ADDRESSING_MODE;
+ 494:	90 e2       	ldi	r25, 0x20	; 32
+ 496:	9f b9       	out	0x0f, r25	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 498:	77 9b       	sbis	0x0e, 7	; 14
+ 49a:	fe cf       	rjmp	.-4      	; 0x498 <ssd1306_set_memory_addressing_mode+0x8>
+{
+	ssd1306_DC_low();
+	ssd1306_SS_low();
+	SPDR = SET_MEMORY_ADDRESSING_MODE;
+	ssd1306_spi_transmision_end();
+	SPDR = type;
+ 49c:	8f b9       	out	0x0f, r24	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 49e:	77 9b       	sbis	0x0e, 7	; 14
+ 4a0:	fe cf       	rjmp	.-4      	; 0x49e <ssd1306_set_memory_addressing_mode+0xe>
+	PORTD &= ~(1 << PD7);	
+}
+
+inline void ssd1306_SS_high(void)
+{
+	PORTB |= (1 << PB2);
+ 4a2:	c2 9a       	sbi	0x18, 2	; 24
+ 4a4:	08 95       	ret
+
+000004a6 <ssd1306_vizir>:
+	ssd1306_SS_high();
+}
+
+void ssd1306_vizir(void) //Clean screen
+{	
+	ssd1306_set_memory_addressing_mode(HORIZONTAL_ADDRESSING_MODE);
+ 4a6:	80 e0       	ldi	r24, 0x00	; 0
+ 4a8:	f3 df       	rcall	.-26     	; 0x490 <ssd1306_set_memory_addressing_mode>
+	ssd1306_setpage(0, 7);
+ 4aa:	67 e0       	ldi	r22, 0x07	; 7
+ 4ac:	80 e0       	ldi	r24, 0x00	; 0
+ 4ae:	d4 df       	rcall	.-88     	; 0x458 <ssd1306_setpage>
+	ssd1306_setcolumn(0, 127);
+ 4b0:	6f e7       	ldi	r22, 0x7F	; 127
+ 4b2:	80 e0       	ldi	r24, 0x00	; 0
+ 4b4:	df df       	rcall	.-66     	; 0x474 <ssd1306_setcolumn>
+#include "fonts.h"
+#include "SSD1306.h"
+
+inline void ssd1306_DC_high(void) // D/#C - PD7 
+{
+	PORTD |= (1 << PD7);
+ 4b6:	97 9a       	sbi	0x12, 7	; 18
+	PORTB |= (1 << PB2);
+}
+
+inline void ssd1306_SS_low(void)
+{
+	PORTB &= ~(1 << PB2);
+ 4b8:	c2 98       	cbi	0x18, 2	; 24
+ 4ba:	80 e0       	ldi	r24, 0x00	; 0
+ 4bc:	94 e0       	ldi	r25, 0x04	; 4
+	
+	ssd1306_DC_high();
+	ssd1306_SS_low();	
+	for(int i = 0; i < 1024; i++)
+	{
+		SPDR = 0x0;
+ 4be:	1f b8       	out	0x0f, r1	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 4c0:	77 9b       	sbis	0x0e, 7	; 14
+ 4c2:	fe cf       	rjmp	.-4      	; 0x4c0 <ssd1306_vizir+0x1a>
+ 4c4:	01 97       	sbiw	r24, 0x01	; 1
+	ssd1306_setpage(0, 7);
+	ssd1306_setcolumn(0, 127);
+	
+	ssd1306_DC_high();
+	ssd1306_SS_low();	
+	for(int i = 0; i < 1024; i++)
+ 4c6:	d9 f7       	brne	.-10     	; 0x4be <ssd1306_vizir+0x18>
+	PORTD &= ~(1 << PD7);	
+}
+
+inline void ssd1306_SS_high(void)
+{
+	PORTB |= (1 << PB2);
+ 4c8:	c2 9a       	sbi	0x18, 2	; 24
+ 4ca:	08 95       	ret
+
+000004cc <ssd1306_printchar>:
+#include "fonts.h"
+#include "SSD1306.h"
+
+inline void ssd1306_DC_high(void) // D/#C - PD7 
+{
+	PORTD |= (1 << PD7);
+ 4cc:	97 9a       	sbi	0x12, 7	; 18
+	PORTB |= (1 << PB2);
+}
+
+inline void ssd1306_SS_low(void)
+{
+	PORTB &= ~(1 << PB2);
+ 4ce:	c2 98       	cbi	0x18, 2	; 24
+
+void ssd1306_printchar(char to_print) // Wyswietlanie pojedynczego znaku na ekranie
+{
+	ssd1306_DC_high();
+	ssd1306_SS_low();
+	int iteration = Descriptors[to_print - '!'][0];
+ 4d0:	28 2f       	mov	r18, r24
+ 4d2:	30 e0       	ldi	r19, 0x00	; 0
+ 4d4:	21 52       	subi	r18, 0x21	; 33
+ 4d6:	31 09       	sbc	r19, r1
+ 4d8:	f9 01       	movw	r30, r18
+ 4da:	ee 0f       	add	r30, r30
+ 4dc:	ff 1f       	adc	r31, r31
+ 4de:	ee 0f       	add	r30, r30
+ 4e0:	ff 1f       	adc	r31, r31
+ 4e2:	ea 5d       	subi	r30, 0xDA	; 218
+ 4e4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4e6:	45 91       	lpm	r20, Z+
+ 4e8:	55 91       	lpm	r21, Z+
+	int znak = (to_print - '!');
+	if(znak >= -1)
+ 4ea:	2f 3f       	cpi	r18, 0xFF	; 255
+ 4ec:	9f ef       	ldi	r25, 0xFF	; 255
+ 4ee:	39 07       	cpc	r19, r25
+ 4f0:	34 f1       	brlt	.+76     	; 0x53e <ssd1306_printchar+0x72>
+	{
+		if(to_print == 32)
+ 4f2:	80 32       	cpi	r24, 0x20	; 32
+ 4f4:	21 f0       	breq	.+8      	; 0x4fe <ssd1306_printchar+0x32>
+			}
+			
+		}
+		else
+		{
+			for(unsigned int i = 0; i < iteration; i++)
+ 4f6:	41 15       	cp	r20, r1
+ 4f8:	51 05       	cpc	r21, r1
+ 4fa:	49 f4       	brne	.+18     	; 0x50e <ssd1306_printchar+0x42>
+ 4fc:	20 c0       	rjmp	.+64     	; 0x53e <ssd1306_printchar+0x72>
+ 4fe:	85 e0       	ldi	r24, 0x05	; 5
+ 500:	90 e0       	ldi	r25, 0x00	; 0
+	{
+		if(to_print == 32)
+		{
+			for(int i = 0; i<5;i++)
+			{
+				SPDR = 0x00;
+ 502:	1f b8       	out	0x0f, r1	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 504:	77 9b       	sbis	0x0e, 7	; 14
+ 506:	fe cf       	rjmp	.-4      	; 0x504 <ssd1306_printchar+0x38>
+ 508:	01 97       	sbiw	r24, 0x01	; 1
+	int znak = (to_print - '!');
+	if(znak >= -1)
+	{
+		if(to_print == 32)
+		{
+			for(int i = 0; i<5;i++)
+ 50a:	d9 f7       	brne	.-10     	; 0x502 <ssd1306_printchar+0x36>
+ 50c:	18 c0       	rjmp	.+48     	; 0x53e <ssd1306_printchar+0x72>
+			}
+			
+		}
+		else
+		{
+			for(unsigned int i = 0; i < iteration; i++)
+ 50e:	80 e0       	ldi	r24, 0x00	; 0
+ 510:	90 e0       	ldi	r25, 0x00	; 0
+			{
+				SPDR = Bitmaps[Descriptors[znak][1] + i];
+ 512:	f9 01       	movw	r30, r18
+ 514:	ee 0f       	add	r30, r30
+ 516:	ff 1f       	adc	r31, r31
+ 518:	ee 0f       	add	r30, r30
+ 51a:	ff 1f       	adc	r31, r31
+ 51c:	e8 5d       	subi	r30, 0xD8	; 216
+ 51e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 520:	65 91       	lpm	r22, Z+
+ 522:	75 91       	lpm	r23, Z+
+ 524:	fc 01       	movw	r30, r24
+ 526:	e2 56       	subi	r30, 0x62	; 98
+ 528:	fe 4f       	sbci	r31, 0xFE	; 254
+ 52a:	e6 0f       	add	r30, r22
+ 52c:	f7 1f       	adc	r31, r23
+ 52e:	24 91       	lpm	r18, Z
+ 530:	2f b9       	out	0x0f, r18	; 15
+	PORTB &= ~(1 << PB2);
+}
+
+inline void ssd1306_spi_transmision_end(void)
+{
+	while(!(SPSR & (1 << SPIF)));
+ 532:	77 9b       	sbis	0x0e, 7	; 14
+ 534:	fe cf       	rjmp	.-4      	; 0x532 <ssd1306_printchar+0x66>
+			}
+			
+		}
+		else
+		{
+			for(unsigned int i = 0; i < iteration; i++)
+ 536:	01 96       	adiw	r24, 0x01	; 1
+ 538:	84 17       	cp	r24, r20
+ 53a:	95 07       	cpc	r25, r21
+ 53c:	99 f7       	brne	.-26     	; 0x524 <ssd1306_printchar+0x58>
+	PORTD &= ~(1 << PD7);	
+}
+
+inline void ssd1306_SS_high(void)
+{
+	PORTB |= (1 << PB2);
+ 53e:	c2 9a       	sbi	0x18, 2	; 24
+ 540:	08 95       	ret
+
+00000542 <ssd1306_printstring>:
+	}
+	ssd1306_SS_high();
+}
+
+void ssd1306_printstring(char* s_start)
+{
+ 542:	ef 92       	push	r14
+ 544:	ff 92       	push	r15
+ 546:	0f 93       	push	r16
+ 548:	1f 93       	push	r17
+ 54a:	cf 93       	push	r28
+ 54c:	df 93       	push	r29
+ 54e:	8c 01       	movw	r16, r24
+ 550:	7c 01       	movw	r14, r24
+	for(unsigned int i = 0; i < strlen(s_start); i++)
+ 552:	c0 e0       	ldi	r28, 0x00	; 0
+ 554:	d0 e0       	ldi	r29, 0x00	; 0
+ 556:	05 c0       	rjmp	.+10     	; 0x562 <ssd1306_printstring+0x20>
+		ssd1306_printchar(s_start[i]);
+ 558:	f7 01       	movw	r30, r14
+ 55a:	81 91       	ld	r24, Z+
+ 55c:	7f 01       	movw	r14, r30
+ 55e:	b6 df       	rcall	.-148    	; 0x4cc <ssd1306_printchar>
+	ssd1306_SS_high();
+}
+
+void ssd1306_printstring(char* s_start)
+{
+	for(unsigned int i = 0; i < strlen(s_start); i++)
+ 560:	21 96       	adiw	r28, 0x01	; 1
+ 562:	f8 01       	movw	r30, r16
+ 564:	01 90       	ld	r0, Z+
+ 566:	00 20       	and	r0, r0
+ 568:	e9 f7       	brne	.-6      	; 0x564 <ssd1306_printstring+0x22>
+ 56a:	31 97       	sbiw	r30, 0x01	; 1
+ 56c:	e0 1b       	sub	r30, r16
+ 56e:	f1 0b       	sbc	r31, r17
+ 570:	ce 17       	cp	r28, r30
+ 572:	df 07       	cpc	r29, r31
+ 574:	88 f3       	brcs	.-30     	; 0x558 <ssd1306_printstring+0x16>
+		ssd1306_printchar(s_start[i]);
+}
+ 576:	df 91       	pop	r29
+ 578:	cf 91       	pop	r28
+ 57a:	1f 91       	pop	r17
+ 57c:	0f 91       	pop	r16
+ 57e:	ff 90       	pop	r15
+ 580:	ef 90       	pop	r14
+ 582:	08 95       	ret
+
+00000584 <main>:
+
+
+
+
+int main(void)
+{
+ 584:	cf 93       	push	r28
+ 586:	df 93       	push	r29
+ 588:	00 d0       	rcall	.+0      	; 0x58a <main+0x6>
+ 58a:	00 d0       	rcall	.+0      	; 0x58c <main+0x8>
+ 58c:	1f 92       	push	r1
+ 58e:	cd b7       	in	r28, 0x3d	; 61
+ 590:	de b7       	in	r29, 0x3e	; 62
+	int memory;
+	
+	char buff[5];
+	
+	ssd1306_spiini();
+ 592:	3b df       	rcall	.-394    	; 0x40a <ssd1306_spiini>
+	ssd1306_ini();
+ 594:	5e df       	rcall	.-324    	; 0x452 <ssd1306_ini>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 596:	2f ef       	ldi	r18, 0xFF	; 255
+ 598:	8f ef       	ldi	r24, 0xFF	; 255
+ 59a:	9c e2       	ldi	r25, 0x2C	; 44
+ 59c:	21 50       	subi	r18, 0x01	; 1
+ 59e:	80 40       	sbci	r24, 0x00	; 0
+ 5a0:	90 40       	sbci	r25, 0x00	; 0
+ 5a2:	e1 f7       	brne	.-8      	; 0x59c <main+0x18>
+ 5a4:	00 c0       	rjmp	.+0      	; 0x5a6 <main+0x22>
+ 5a6:	00 00       	nop
+	_delay_ms(2000);
+	ssd1306_vizir();
+ 5a8:	7e df       	rcall	.-260    	; 0x4a6 <ssd1306_vizir>
+	
+	memory =IP12B512x_check_memory();
+ 5aa:	24 df       	rcall	.-440    	; 0x3f4 <IP12B512x_check_memory>
+    } else if (__radix < 2 || __radix > 36) {
+	*__s = 0;
+	return __s;
+    } else {
+	extern char *__itoa_ncheck (int, char *, unsigned char);
+	return __itoa_ncheck (__val, __s, __radix);
+ 5ac:	4a e0       	ldi	r20, 0x0A	; 10
+ 5ae:	be 01       	movw	r22, r28
+ 5b0:	6f 5f       	subi	r22, 0xFF	; 255
+ 5b2:	7f 4f       	sbci	r23, 0xFF	; 255
+ 5b4:	07 d0       	rcall	.+14     	; 0x5c4 <__itoa_ncheck>
+	
+	itoa(memory, buff, 10);
+	
+	ssd1306_printstring("Dostepna pamiec:");
+ 5b6:	80 e6       	ldi	r24, 0x60	; 96
+ 5b8:	90 e0       	ldi	r25, 0x00	; 0
+ 5ba:	c3 df       	rcall	.-122    	; 0x542 <ssd1306_printstring>
+	ssd1306_printstring(buff);
+ 5bc:	ce 01       	movw	r24, r28
+ 5be:	01 96       	adiw	r24, 0x01	; 1
+ 5c0:	c0 df       	rcall	.-128    	; 0x542 <ssd1306_printstring>
+	
+	
+    while(1)
+    {
+        
+    }
+ 5c2:	ff cf       	rjmp	.-2      	; 0x5c2 <main+0x3e>
+
+000005c4 <__itoa_ncheck>:
+ 5c4:	bb 27       	eor	r27, r27
+ 5c6:	4a 30       	cpi	r20, 0x0A	; 10
+ 5c8:	31 f4       	brne	.+12     	; 0x5d6 <__itoa_ncheck+0x12>
+ 5ca:	99 23       	and	r25, r25
+ 5cc:	22 f4       	brpl	.+8      	; 0x5d6 <__itoa_ncheck+0x12>
+ 5ce:	bd e2       	ldi	r27, 0x2D	; 45
+ 5d0:	90 95       	com	r25
+ 5d2:	81 95       	neg	r24
+ 5d4:	9f 4f       	sbci	r25, 0xFF	; 255
+ 5d6:	01 c0       	rjmp	.+2      	; 0x5da <__utoa_common>
+
+000005d8 <__utoa_ncheck>:
+ 5d8:	bb 27       	eor	r27, r27
+
+000005da <__utoa_common>:
+ 5da:	fb 01       	movw	r30, r22
+ 5dc:	55 27       	eor	r21, r21
+ 5de:	aa 27       	eor	r26, r26
+ 5e0:	88 0f       	add	r24, r24
+ 5e2:	99 1f       	adc	r25, r25
+ 5e4:	aa 1f       	adc	r26, r26
+ 5e6:	a4 17       	cp	r26, r20
+ 5e8:	10 f0       	brcs	.+4      	; 0x5ee <__utoa_common+0x14>
+ 5ea:	a4 1b       	sub	r26, r20
+ 5ec:	83 95       	inc	r24
+ 5ee:	50 51       	subi	r21, 0x10	; 16
+ 5f0:	b9 f7       	brne	.-18     	; 0x5e0 <__utoa_common+0x6>
+ 5f2:	a0 5d       	subi	r26, 0xD0	; 208
+ 5f4:	aa 33       	cpi	r26, 0x3A	; 58
+ 5f6:	08 f0       	brcs	.+2      	; 0x5fa <__utoa_common+0x20>
+ 5f8:	a9 5d       	subi	r26, 0xD9	; 217
+ 5fa:	a1 93       	st	Z+, r26
+ 5fc:	00 97       	sbiw	r24, 0x00	; 0
+ 5fe:	79 f7       	brne	.-34     	; 0x5de <__utoa_common+0x4>
+ 600:	b1 11       	cpse	r27, r1
+ 602:	b1 93       	st	Z+, r27
+ 604:	11 92       	st	Z+, r1
+ 606:	cb 01       	movw	r24, r22
+ 608:	00 c0       	rjmp	.+0      	; 0x60a <strrev>
+
+0000060a <strrev>:
+ 60a:	dc 01       	movw	r26, r24
+ 60c:	fc 01       	movw	r30, r24
+ 60e:	67 2f       	mov	r22, r23
+ 610:	71 91       	ld	r23, Z+
+ 612:	77 23       	and	r23, r23
+ 614:	e1 f7       	brne	.-8      	; 0x60e <strrev+0x4>
+ 616:	32 97       	sbiw	r30, 0x02	; 2
+ 618:	04 c0       	rjmp	.+8      	; 0x622 <strrev+0x18>
+ 61a:	7c 91       	ld	r23, X
+ 61c:	6d 93       	st	X+, r22
+ 61e:	70 83       	st	Z, r23
+ 620:	62 91       	ld	r22, -Z
+ 622:	ae 17       	cp	r26, r30
+ 624:	bf 07       	cpc	r27, r31
+ 626:	c8 f3       	brcs	.-14     	; 0x61a <strrev+0x10>
+ 628:	08 95       	ret
+
+0000062a <_exit>:
+ 62a:	f8 94       	cli
+
+0000062c <__stop_program>:
+ 62c:	ff cf       	rjmp	.-2      	; 0x62c <__stop_program>
