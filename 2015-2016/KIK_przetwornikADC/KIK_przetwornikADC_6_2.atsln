@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "KIK_przetwornikADC", "KIK_przetwornikADC\KIK_przetwornikADC_6_2.cproj", "{4895A4B8-C3D1-40D2-9DAB-07E594B268A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4895A4B8-C3D1-40D2-9DAB-07E594B268A9}.Debug|AVR.ActiveCfg = Debug|AVR
+		{4895A4B8-C3D1-40D2-9DAB-07E594B268A9}.Debug|AVR.Build.0 = Debug|AVR
+		{4895A4B8-C3D1-40D2-9DAB-07E594B268A9}.Release|AVR.ActiveCfg = Release|AVR
+		{4895A4B8-C3D1-40D2-9DAB-07E594B268A9}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

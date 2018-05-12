@@ -1,0 +1,175 @@
+
+KIK_przetwornikADC.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000a2  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      00000030  00000000  00000000  000000f6  2**0
+                  CONTENTS, READONLY
+  2 .debug_aranges 00000028  00000000  00000000  00000126  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   000000a8  00000000  00000000  0000014e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 0000006b  00000000  00000000  000001f6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000000d5  00000000  00000000  00000261  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000050  00000000  00000000  00000338  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    0000013d  00000000  00000000  00000388  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    00000056  00000000  00000000  000004c5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges 00000018  00000000  00000000  0000051b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	19 c0       	rjmp	.+50     	; 0x36 <__bad_interrupt>
+   4:	18 c0       	rjmp	.+48     	; 0x36 <__bad_interrupt>
+   6:	17 c0       	rjmp	.+46     	; 0x36 <__bad_interrupt>
+   8:	16 c0       	rjmp	.+44     	; 0x36 <__bad_interrupt>
+   a:	15 c0       	rjmp	.+42     	; 0x36 <__bad_interrupt>
+   c:	14 c0       	rjmp	.+40     	; 0x36 <__bad_interrupt>
+   e:	13 c0       	rjmp	.+38     	; 0x36 <__bad_interrupt>
+  10:	12 c0       	rjmp	.+36     	; 0x36 <__bad_interrupt>
+  12:	11 c0       	rjmp	.+34     	; 0x36 <__bad_interrupt>
+  14:	10 c0       	rjmp	.+32     	; 0x36 <__bad_interrupt>
+  16:	0f c0       	rjmp	.+30     	; 0x36 <__bad_interrupt>
+  18:	0e c0       	rjmp	.+28     	; 0x36 <__bad_interrupt>
+  1a:	0d c0       	rjmp	.+26     	; 0x36 <__bad_interrupt>
+  1c:	0d c0       	rjmp	.+26     	; 0x38 <__vector_14>
+  1e:	0b c0       	rjmp	.+22     	; 0x36 <__bad_interrupt>
+  20:	0a c0       	rjmp	.+20     	; 0x36 <__bad_interrupt>
+  22:	09 c0       	rjmp	.+18     	; 0x36 <__bad_interrupt>
+  24:	08 c0       	rjmp	.+16     	; 0x36 <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+  32:	27 d0       	rcall	.+78     	; 0x82 <main>
+  34:	34 c0       	rjmp	.+104    	; 0x9e <_exit>
+
+00000036 <__bad_interrupt>:
+  36:	e4 cf       	rjmp	.-56     	; 0x0 <__vectors>
+
+00000038 <__vector_14>:
+
+#include <avr/io.h>
+#include <avr/interrupt.h>
+
+ISR (ADC_vect)
+{
+  38:	1f 92       	push	r1
+  3a:	0f 92       	push	r0
+  3c:	0f b6       	in	r0, 0x3f	; 63
+  3e:	0f 92       	push	r0
+  40:	11 24       	eor	r1, r1
+  42:	2f 93       	push	r18
+  44:	8f 93       	push	r24
+  46:	9f 93       	push	r25
+	if (ADMUX & (1<<MUX0))
+  48:	38 9b       	sbis	0x07, 0	; 7
+  4a:	0a c0       	rjmp	.+20     	; 0x60 <__SREG__+0x21>
+	{
+		//kana³ ADC5
+		if (ADC < 300)
+  4c:	84 b1       	in	r24, 0x04	; 4
+  4e:	95 b1       	in	r25, 0x05	; 5
+  50:	8c 32       	cpi	r24, 0x2C	; 44
+  52:	91 40       	sbci	r25, 0x01	; 1
+  54:	10 f4       	brcc	.+4      	; 0x5a <__SREG__+0x1b>
+		{
+			PORTB	|= (1<<PB0);
+  56:	c0 9a       	sbi	0x18, 0	; 24
+  58:	01 c0       	rjmp	.+2      	; 0x5c <__SREG__+0x1d>
+		}
+		else
+		{
+			PORTB	&= ~(1<<PB0);
+  5a:	c0 98       	cbi	0x18, 0	; 24
+		}
+		ADMUX	&= ~(1<<MUX0);	//Ustaw kana³ ADC4
+  5c:	38 98       	cbi	0x07, 0	; 7
+  5e:	09 c0       	rjmp	.+18     	; 0x72 <__SREG__+0x33>
+		//ADCSRA	|= (1<<ADSC);	//Rozpocznij pomiar
+	}
+	else
+	{
+		//kana³ ADC4
+		if (ADC < 300)
+  60:	84 b1       	in	r24, 0x04	; 4
+  62:	95 b1       	in	r25, 0x05	; 5
+  64:	8c 32       	cpi	r24, 0x2C	; 44
+  66:	91 40       	sbci	r25, 0x01	; 1
+  68:	10 f4       	brcc	.+4      	; 0x6e <__SREG__+0x2f>
+		{
+			PORTB	|= (1<<PB2);
+  6a:	c2 9a       	sbi	0x18, 2	; 24
+  6c:	01 c0       	rjmp	.+2      	; 0x70 <__SREG__+0x31>
+		}
+		else
+		{
+			PORTB	&= ~(1<<PB2);
+  6e:	c2 98       	cbi	0x18, 2	; 24
+		}
+		ADMUX	|= (1<<MUX0);	//Ustaw kana³ ADC5
+  70:	38 9a       	sbi	0x07, 0	; 7
+		//ADCSRA	|= (1<<ADSC);	//Rozpocznij pomiar
+	}
+	
+	
+}
+  72:	9f 91       	pop	r25
+  74:	8f 91       	pop	r24
+  76:	2f 91       	pop	r18
+  78:	0f 90       	pop	r0
+  7a:	0f be       	out	0x3f, r0	; 63
+  7c:	0f 90       	pop	r0
+  7e:	1f 90       	pop	r1
+  80:	18 95       	reti
+
+00000082 <main>:
+
+
+
+int main(void)
+{	
+	ADMUX	|= (1<<MUX0)	|	(1<<MUX2)	|	(1<<REFS0);
+  82:	87 b1       	in	r24, 0x07	; 7
+  84:	85 64       	ori	r24, 0x45	; 69
+  86:	87 b9       	out	0x07, r24	; 7
+	ADCSRA	|= (1<<ADEN)	|	(1<<ADPS0)	|	(1<<ADPS1)	|	(1<<ADPS2);
+  88:	86 b1       	in	r24, 0x06	; 6
+  8a:	87 68       	ori	r24, 0x87	; 135
+  8c:	86 b9       	out	0x06, r24	; 6
+	
+	
+	DDRB	|=	(1<<PB0)	|	(1<<PB1)	|	(1<<PB2);
+  8e:	87 b3       	in	r24, 0x17	; 23
+  90:	87 60       	ori	r24, 0x07	; 7
+  92:	87 bb       	out	0x17, r24	; 23
+	ADCSRA	|= (1<<ADIE);	//W³¹cz przerwania ADC
+  94:	33 9a       	sbi	0x06, 3	; 6
+	ADCSRA	|= (1<<ADFR);	//W³¹cz FreeRunning mode
+  96:	35 9a       	sbi	0x06, 5	; 6
+	sei();
+  98:	78 94       	sei
+	
+	
+	ADCSRA	|= (1<<ADSC);	//Rozpocznij pomiar
+  9a:	36 9a       	sbi	0x06, 6	; 6
+  9c:	ff cf       	rjmp	.-2      	; 0x9c <main+0x1a>
+
+0000009e <_exit>:
+  9e:	f8 94       	cli
+
+000000a0 <__stop_program>:
+  a0:	ff cf       	rjmp	.-2      	; 0xa0 <__stop_program>
