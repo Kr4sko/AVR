@@ -1,0 +1,178 @@
+
+SPI_Slave_2xATMEGA_WiFi_Bluetooth_6_2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000a4  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          0000000f  00800060  00800060  00000118  2**0
+                  ALLOC
+  2 .comment      00000030  00000000  00000000  00000118  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000038  00000000  00000000  00000148  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000158  00000000  00000000  00000180  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000000c9  00000000  00000000  000002d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000108  00000000  00000000  000003a1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000064  00000000  00000000  000004ac  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000199  00000000  00000000  00000510  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    0000003c  00000000  00000000  000006a9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000028  00000000  00000000  000006e5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	21 c0       	rjmp	.+66     	; 0x46 <__bad_interrupt>
+   4:	20 c0       	rjmp	.+64     	; 0x46 <__bad_interrupt>
+   6:	1f c0       	rjmp	.+62     	; 0x46 <__bad_interrupt>
+   8:	1e c0       	rjmp	.+60     	; 0x46 <__bad_interrupt>
+   a:	1d c0       	rjmp	.+58     	; 0x46 <__bad_interrupt>
+   c:	1c c0       	rjmp	.+56     	; 0x46 <__bad_interrupt>
+   e:	1b c0       	rjmp	.+54     	; 0x46 <__bad_interrupt>
+  10:	1a c0       	rjmp	.+52     	; 0x46 <__bad_interrupt>
+  12:	19 c0       	rjmp	.+50     	; 0x46 <__bad_interrupt>
+  14:	18 c0       	rjmp	.+48     	; 0x46 <__bad_interrupt>
+  16:	18 c0       	rjmp	.+48     	; 0x48 <__vector_11>
+  18:	16 c0       	rjmp	.+44     	; 0x46 <__bad_interrupt>
+  1a:	15 c0       	rjmp	.+42     	; 0x46 <__bad_interrupt>
+  1c:	14 c0       	rjmp	.+40     	; 0x46 <__bad_interrupt>
+  1e:	13 c0       	rjmp	.+38     	; 0x46 <__bad_interrupt>
+  20:	12 c0       	rjmp	.+36     	; 0x46 <__bad_interrupt>
+  22:	11 c0       	rjmp	.+34     	; 0x46 <__bad_interrupt>
+  24:	10 c0       	rjmp	.+32     	; 0x46 <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_clear_bss>:
+  32:	20 e0       	ldi	r18, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	01 c0       	rjmp	.+2      	; 0x3c <.do_clear_bss_start>
+
+0000003a <.do_clear_bss_loop>:
+  3a:	1d 92       	st	X+, r1
+
+0000003c <.do_clear_bss_start>:
+  3c:	af 36       	cpi	r26, 0x6F	; 111
+  3e:	b2 07       	cpc	r27, r18
+  40:	e1 f7       	brne	.-8      	; 0x3a <.do_clear_bss_loop>
+  42:	24 d0       	rcall	.+72     	; 0x8c <main>
+  44:	2d c0       	rjmp	.+90     	; 0xa0 <_exit>
+
+00000046 <__bad_interrupt>:
+  46:	dc cf       	rjmp	.-72     	; 0x0 <__vectors>
+
+00000048 <__vector_11>:
+volatile char Blue;
+
+
+// zapisywanie odczytu z bluetootha do rejestru SPDR
+ISR(USART_RXC_vect)
+{
+  48:	1f 92       	push	r1
+  4a:	0f 92       	push	r0
+  4c:	0f b6       	in	r0, 0x3f	; 63
+  4e:	0f 92       	push	r0
+  50:	11 24       	eor	r1, r1
+  52:	8f 93       	push	r24
+	Blue = UDR;
+  54:	8c b1       	in	r24, 0x0c	; 12
+  56:	80 93 64 00 	sts	0x0064, r24
+}
+  5a:	8f 91       	pop	r24
+  5c:	0f 90       	pop	r0
+  5e:	0f be       	out	0x3f, r0	; 63
+  60:	0f 90       	pop	r0
+  62:	1f 90       	pop	r1
+  64:	18 95       	reti
+
+00000066 <setAsSlave>:
+}*/
+ 
+ //ustawienie mikrokontrolera w tryb slave
+void setAsSlave()
+{
+	DDRB &= ~((1 << PB2) | (1 << PB3)); //ustawienie ss oraz mosi na wejscie
+  66:	87 b3       	in	r24, 0x17	; 23
+  68:	83 7f       	andi	r24, 0xF3	; 243
+  6a:	87 bb       	out	0x17, r24	; 23
+	DDRB |= (1 << PB4); //ustawienie miso na wyjscie
+  6c:	bc 9a       	sbi	0x17, 4	; 23
+	DDRB &= ~(1 << PB5); // ustawienie sck na wejscie
+  6e:	bd 98       	cbi	0x17, 5	; 23
+	SPCR &= ~(1 << MSTR); //ustawienie jako slave
+  70:	6c 98       	cbi	0x0d, 4	; 13
+	SPCR |= (1 << SPE); // wlaczenie spi
+  72:	6e 9a       	sbi	0x0d, 6	; 13
+  74:	08 95       	ret
+
+00000076 <setUsart>:
+}
+
+//ustawienie usart pod modu³ bluetooth HC05
+void setUsart()
+{
+	UCSRA |= (1 << U2X); // ustawienie baud rate 9600
+  76:	59 9a       	sbi	0x0b, 1	; 11
+	UBRRL = 12;
+  78:	8c e0       	ldi	r24, 0x0C	; 12
+  7a:	89 b9       	out	0x09, r24	; 9
+	//UCSRC &= ~((1 << UMSEL) | (1 << UPM0) | (1 << UPM1) | (1 << USBS)); // transmisja asynchroniczna, brak parzystosci, 1 bit stopu
+	UCSRC |= (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1); 
+  7c:	80 b5       	in	r24, 0x20	; 32
+  7e:	86 68       	ori	r24, 0x86	; 134
+  80:	80 bd       	out	0x20, r24	; 32
+	//UCSRC &= ~(1 << UCSZ2); //ustawienie ilosci bitow danych na 8 (1 bajt)
+	UCSRB |= (1 << RXEN) | (1 << TXEN) | (1 << RXCIE); // wlaczenie odbiornika i nadajnika
+  82:	8a b1       	in	r24, 0x0a	; 10
+  84:	88 69       	ori	r24, 0x98	; 152
+  86:	8a b9       	out	0x0a, r24	; 10
+	DDRD |= (1 << PD1); // ustawienie TXD na wyjscie
+  88:	89 9a       	sbi	0x11, 1	; 17
+  8a:	08 95       	ret
+
+0000008c <main>:
+}
+
+
+int main(void)
+{
+	DDRC |= (1 << PC4);
+  8c:	a4 9a       	sbi	0x14, 4	; 20
+	setAsSlave();
+  8e:	eb df       	rcall	.-42     	; 0x66 <setAsSlave>
+	setUsart();
+  90:	f2 df       	rcall	.-28     	; 0x76 <setUsart>
+	sei();
+  92:	78 94       	sei
+    while(1)
+	{
+		//waiting for end of transmission
+		while(!(SPSR & (1 << SPIF)));
+  94:	77 9b       	sbis	0x0e, 7	; 14
+  96:	fe cf       	rjmp	.-4      	; 0x94 <main+0x8>
+		SPDR = Blue;
+  98:	80 91 64 00 	lds	r24, 0x0064
+  9c:	8f b9       	out	0x0f, r24	; 15
+	}
+  9e:	fa cf       	rjmp	.-12     	; 0x94 <main+0x8>
+
+000000a0 <_exit>:
+  a0:	f8 94       	cli
+
+000000a2 <__stop_program>:
+  a2:	ff cf       	rjmp	.-2      	; 0xa2 <__stop_program>
