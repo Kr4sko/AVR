@@ -1,0 +1,11 @@
+Format:
+
+Rectangle: 	WxDxH
+Trapezoid:	uBxdBxLxRxD 
+
+Upper part of servo holder:
+250x200x95
+
+
+Trapezoid for zip-tie:
+120x140x42.65x42.65x57.5

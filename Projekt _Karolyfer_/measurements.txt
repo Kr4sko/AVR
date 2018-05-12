@@ -1,0 +1,64 @@
+Measurements required for engine's cog
+
+full height: 5,5mm
+
+Orginal rectangle:
+height: 			12mm
+width: 				37mm
+thickness: 			2mm
+
+
+
+Wings:
+base: 				9mm
+half-point: 		7mm
+tip: 				5mm
+length: 			12.5mm
+
+Outer Circle:
+Radius: 			6mm 
+
+Inner Circle:
+Diameter: 			9mm
+
+Cutoff:
+Width from centre: 	9mm
+
+
+Some thing
+Diameter:			8.5mm
+
+
+Behind the valve:
+Diameter:			3cm
+thickness			1cm
+
+Pipe:
+Diameter			1.8cm
+
+Thicker Pipe:
+Diameter			2.2cm
+
+U-bend - Pipe:
+distance:			1.8cm
+
+Pipe - Cog:			
+distance:			6cm
+
+Servomechanism:
+
+height:				4.0cm
+length:				3.9cm
+width:				1.95cm
+
+with cable:			2.1cm
+without cable:		2.6cm
+
+On-valve Handle:
+
+tooth:
+
+thickness:			4mm
+deep length:		17mm
+width:				4mm
+
